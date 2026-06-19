@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)",
+      "PowerShell(winget install OpenJS.NodeJS.LTS --accept-source-agreements --accept-package-agreements --silent -h 2>&1)",
+      "PowerShell($env:Path = [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"User\"\\); & \"$env:ProgramFiles\\\\nodejs\\\\node.exe\" --version; & \"$env:ProgramFiles\\\\nodejs\\\\npm.cmd\" --version)",
+      "PowerShell($env:Path = [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"User\"\\); Set-Location \"c:\\\\Users\\\\wessi\\\\OneDrive\\\\Desktop\\\\stage\\\\New folder\"; & \"$env:ProgramFiles\\\\nodejs\\\\npm.cmd\" install --no-audit --no-fund 2>&1 | Select-Object -Last 25)"
+    ]
+  }
+}

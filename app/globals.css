@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 96%;
+    --card: 222 40% 7%;
+    --card-foreground: 210 40% 96%;
+    --primary: 168 76% 64%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 62%;
+    --accent: 213 94% 68%;
+    --accent-foreground: 222 47% 6%;
+    --border: 217 33% 16%;
+    --input: 217 33% 16%;
+    --ring: 168 76% 64%;
+    --radius: 0.9rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-color: #05070d;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  ::selection {
+    background: rgba(94, 234, 212, 0.25);
+    color: #fff;
+  }
+
+  /* Slim luxe scrollbar */
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(94, 234, 212, 0.4), rgba(96, 165, 250, 0.4));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(94, 234, 212, 0.7), rgba(96, 165, 250, 0.7));
+  }
+}
+
+@layer components {
+  /* Frosted glass surface used across floating panels */
+  .glass {
+    background: linear-gradient(
+      150deg,
+      rgba(18, 26, 43, 0.78) 0%,
+      rgba(10, 15, 27, 0.7) 100%
+    );
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+      0 30px 80px -30px rgba(0, 0, 0, 0.9);
+  }
+
+  .glass-soft {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .text-gradient {
+    background: linear-gradient(100deg, #e7d3ad 0%, #5eead4 45%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(100deg, #f5e7c8 0%, #d4b483 60%, #b8945f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hairline {
+    border-image: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.18),
+        transparent
+      )
+      1;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(94, 234, 212, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(94, 234, 212, 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .bg-radial-glow {
+    background: radial-gradient(
+      1200px 600px at 50% -10%,
+      rgba(96, 165, 250, 0.18),
+      transparent 60%
+    );
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
